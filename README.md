@@ -12,13 +12,13 @@ index.html 의 실행 화면이다.
 
 ## 리스트 요소로 만들기
 
-![usage](https://user-images.githubusercontent.com/3115669/69886544-c6e78200-1325-11ea-8e31-7a4f44f35ae1.png)
+![usagen1](https://user-images.githubusercontent.com/3115669/69887538-cac9d300-132a-11ea-9ee4-8998dea34e5b.png)
 
 toclist에는 UL 요소가 할당된다.
 
 ## 객체로 만들기
 
-![usage3](https://user-images.githubusercontent.com/3115669/69886648-60af2f00-1326-11ea-92d4-4027ff7057c1.png)
+![usagen2](https://user-images.githubusercontent.com/3115669/69887540-cc939680-132a-11ea-862c-94e21babdf7e.png)
 
 ### 출력
 
