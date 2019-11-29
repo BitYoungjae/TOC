@@ -63,7 +63,7 @@ const getHeadingElementsChain = (list) => {
         } else if (previous.tagName === tagName) {
             parent.subHeadings.push(now.value);
         } else {
-            return [];
+            return {};
         }
 
         previous = now.value;
