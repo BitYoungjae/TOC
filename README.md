@@ -23,7 +23,7 @@ toclist에는 UL 요소가 할당된다.
 ### 출력
 
 ```json
-main.mjs:40 {
+{
   "tagName": "H1",
   "id": "자바스크립트의-객체",
   "textContent": "자바스크립트의 객체",
