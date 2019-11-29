@@ -28,12 +28,12 @@ const getHeadingElementsList = getElementsList(isHeading);
 const getHeadingElementsChain = (list) => {
     const iterator = list[Symbol.iterator]();
     const parentPointer = new Map();
+    
     let result = {
         tagName: "H1",
         textContent: "",
         subHeadings: []
     };
-    let parent = result;
     let now = iterator.next();
     let previous = null;
 
@@ -41,7 +41,7 @@ const getHeadingElementsChain = (list) => {
         result = now.value;
         previous = now.value;
     } else {
-        parent.subHeadings.push(now.value);
+        result.subHeadings.push(now.value);
         previous = result;
     }
 
@@ -54,14 +54,11 @@ const getHeadingElementsChain = (list) => {
             const subArray = [];
             subArray.push(now.value);
 
-            parent = previous;
-            parent.subHeadings.push(now.value);
+            previous.subHeadings.push(now.value);
 
             parentPointer.set(tagName, previous);
-        } else if (previous.tagName > tagName) {
+        } else if (previous.tagName >= tagName) {
             parentPointer.get(tagName).subHeadings.push(now.value);
-        } else if (previous.tagName === tagName) {
-            parent.subHeadings.push(now.value);
         } else {
             return {};
         }
@@ -116,4 +113,7 @@ const createTOCObject = pipe(
     getHeadingElementsChain
 );
 
-export { createTOC, createTOCObject };
+export {
+    createTOC,
+    createTOCObject
+};

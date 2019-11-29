@@ -1,5 +1,5 @@
 import { L, testFunc } from "./module/functional.mjs";
-import { createTOC } from "./module/toc.mjs";
+import { createTOC, createTOCObject } from "./module/toc.mjs";
 
 { // 탐구 1 - QuerySelector의 성능에 대하여
 
@@ -35,6 +35,12 @@ const main = () => {
     const content = document.getElementsByClassName("content")[0];
     // content 영역 내의 머릿글 요소들을 분석해 UL 요소를 생성한다.
     const toclist = createTOC(content);
+
+    // 객체 형태로 출력해본다.
+    const obj = createTOCObject(content);
+    console.log(
+        JSON.stringify(obj, null, 2)
+    );
 
     const toc = document.getElementsByClassName("toc")[0];
     toc.appendChild(toclist);

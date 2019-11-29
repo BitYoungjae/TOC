@@ -6,7 +6,7 @@
 
 index.html 의 실행 화면이다.
 
-![usage2](https://user-images.githubusercontent.com/3115669/69886526-b0412b00-1325-11ea-8851-e87820d7d26e.png)
+![demo](https://user-images.githubusercontent.com/3115669/69888775-fc459d00-1330-11ea-9df1-c39c73b9aa7a.png)
 
 # 사용법
 
@@ -23,7 +23,7 @@ toclist에는 UL 요소가 할당된다.
 ### 출력
 
 ```json
-{
+main.mjs:40 {
   "tagName": "H1",
   "id": "자바스크립트의-객체",
   "textContent": "자바스크립트의 객체",
@@ -50,58 +50,6 @@ toclist에는 UL 요소가 할당된다.
           "id": "값",
           "textContent": "값",
           "subHeadings": []
-        },
-        {
-          "tagName": "H2",
-          "id": "속성",
-          "textContent": "속성",
-          "subHeadings": [
-            {
-              "tagName": "H3",
-              "id": "메서드",
-              "textContent": "메서드",
-              "subHeadings": [
-                {
-                  "tagName": "H4",
-                  "id": "자신이-속한-객체를-참조하는-방법",
-                  "textContent": "자신이 속한 객체를 참조하는 방법",
-                  "subHeadings": [
-                    {
-                      "tagName": "H5",
-                      "id": "this-binding-규칙",
-                      "textContent": "this binding 규칙",
-                      "subHeadings": []
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "tagName": "H3",
-              "id": "getter와-setter",
-              "textContent": "getter와 setter",
-              "subHeadings": [
-                {
-                  "tagName": "H4",
-                  "id": "용도",
-                  "textContent": "용도",
-                  "subHeadings": []
-                },
-                {
-                  "tagName": "H4",
-                  "id": "표기방법",
-                  "textContent": "표기방법",
-                  "subHeadings": []
-                },
-                {
-                  "tagName": "H4",
-                  "id": "getter와-setter를-동적으로-추가하기",
-                  "textContent": "getter와 setter를 동적으로 추가하기",
-                  "subHeadings": []
-                }
-              ]
-            }
-          ]
         }
       ]
     },
@@ -110,6 +58,58 @@ toclist에는 UL 요소가 할당된다.
       "id": "키를-이용해-값을-수정하고-조회하는-방법",
       "textContent": "키를 이용해 값을 수정하고 조회하는 방법",
       "subHeadings": []
+    },
+    {
+      "tagName": "H2",
+      "id": "속성",
+      "textContent": "속성",
+      "subHeadings": [
+        {
+          "tagName": "H3",
+          "id": "메서드",
+          "textContent": "메서드",
+          "subHeadings": [
+            {
+              "tagName": "H4",
+              "id": "자신이-속한-객체를-참조하는-방법",
+              "textContent": "자신이 속한 객체를 참조하는 방법",
+              "subHeadings": [
+                {
+                  "tagName": "H5",
+                  "id": "this-binding-규칙",
+                  "textContent": "this binding 규칙",
+                  "subHeadings": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tagName": "H3",
+          "id": "getter와-setter",
+          "textContent": "getter와 setter",
+          "subHeadings": [
+            {
+              "tagName": "H4",
+              "id": "용도",
+              "textContent": "용도",
+              "subHeadings": []
+            },
+            {
+              "tagName": "H4",
+              "id": "표기방법",
+              "textContent": "표기방법",
+              "subHeadings": []
+            },
+            {
+              "tagName": "H4",
+              "id": "getter와-setter를-동적으로-추가하기",
+              "textContent": "getter와 setter를 동적으로 추가하기",
+              "subHeadings": []
+            }
+          ]
+        }
+      ]
     },
     {
       "tagName": "H2",
