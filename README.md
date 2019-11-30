@@ -8,6 +8,10 @@ index.html 의 실행 화면이다.
 
 ![demo](https://user-images.githubusercontent.com/3115669/69888775-fc459d00-1330-11ea-9df1-c39c73b9aa7a.png)
 
+## 원문
+
+[자바스크립트의 객체 (Bityoungjae 개인블로그)](https://bityoungjae.com/2019/09/08/JavaScript/%EC%8B%9C%EB%A6%AC%EC%A6%88/%EA%B0%9D%EC%B2%B4%EC%97%90%20%EB%8C%80%ED%95%98%EC%97%AC/1.%20%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EC%9D%98%20%EA%B0%9D%EC%B2%B4/)
+
 # 사용법
 
 ## 리스트 요소로 만들기
