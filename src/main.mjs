@@ -46,4 +46,9 @@ const main = () => {
     toc.appendChild(toclist);
 }
 
-window.addEventListener("load", main);
+/* module의 경우 브라우저에서 defer 속성이 기본값이다.
+ * 어차피 DOM 해석이 완료될 때까지 실행을 알아서 지연시킨다는 이야기다.
+ * 따라서, 아래처럼 DomContentLoaded 이벤트를 경유할시 정상 실행이 되지 않는다.
+*/
+// document.addEventListener("DomContentLoaded", main);
+main();
