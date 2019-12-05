@@ -88,50 +88,52 @@ const getHeadingElementsChain = (list) => {
     return result;
 };
 
+const createList = now => {
+    const li = document.createElement("LI");
+    const anchor = document.createElement("A");
+
+    anchor.textContent = now.textContent;
+    anchor.href = `#${now.id}`;
+
+    li.appendChild(anchor);
+
+    return li;
+}
+
+const createNestedList = (now) => {
+    const li = createList(now);
+
+    if (now.subHeadings.length) {
+        const ul = document.createElement("UL");
+        li.appendChild(ul);
+
+        now.subHeadings.forEach(
+            child => {
+                ul.appendChild(createNestedList(child))
+            }
+        );
+    }
+
+    return li;
+}
+
 const convertHeadingElementChainToListElement = (now) => {
-    const createListItem = v => {
-        const list = document.createElement("ul");
-        const item = document.createElement("li");
-        const anchor = document.createElement("a");
+    const ul = document.createElement("UL");
 
-        anchor.textContent = v.textContent;
-        anchor.href = `#${v.id}`;
+    ul.appendChild(createNestedList(now));
 
-        item.appendChild(anchor);
-        list.appendChild(item);
-
-        return list;
-    };
-
-    const list = createListItem(now);
-
-    const children = now.subHeadings.map(v => {
-        if (v.subHeadings.length) {
-            return convertHeadingElementChainToListElement(v);
-        }
-
-        const list = createListItem(v);
-        return list;
-    });
-
-    children.forEach(item => {
-        list.appendChild(item);
-    });
-
-    return list;
+    return ul;
 };
-
-const createTOC = pipe(
-    getHeadingElementsList,
-    normalizeHeadingElementList,
-    getHeadingElementsChain,
-    convertHeadingElementChainToListElement
-);
 
 const createTOCObject = pipe(
     getHeadingElementsList,
     normalizeHeadingElementList,
     getHeadingElementsChain
+);
+
+const createTOC = pipe(
+    createTOCObject,
+    convertHeadingElementChainToListElement
 );
 
 export {
