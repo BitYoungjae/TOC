@@ -25,10 +25,29 @@ const getElementsList = curry((f, root) => go(
 const isHeading = element => element.nodeName.startsWith("H");
 const getHeadingElementsList = getElementsList(isHeading);
 
+const getNumberByHeadingTagName = (tagName) => tagName[tagName.length - 1] >> 0;
+const getDepthDiff = (one, two) => getNumberByHeadingTagName(one) - getNumberByHeadingTagName(two);
+const normalizeHeadingTagName = (tagName, depth) => "H" + (getNumberByHeadingTagName(tagName) + depth);
+
+const normalizeHeadingElementList = (list) => L.map(
+    (element, previous) => {
+        if (!previous) return element;
+        if (element.tagName === "H1") element.tagName = "H2";
+
+        const depthDiff = getDepthDiff(previous.tagName, element.tagName);
+
+        if (depthDiff <= -2) {
+            const tagName = element.tagName;
+            element.tagName = normalizeHeadingTagName(tagName, depthDiff + 1);
+        }
+
+        return element;
+    }, list);
+
 const getHeadingElementsChain = (list) => {
     const iterator = list[Symbol.iterator]();
     const parentPointer = new Map();
-    
+
     let result = {
         tagName: "H1",
         textContent: "",
@@ -100,16 +119,18 @@ const convertHeadingElementChainToListElement = (now) => {
     });
 
     return list;
-}
+};
 
 const createTOC = pipe(
     getHeadingElementsList,
+    normalizeHeadingElementList,
     getHeadingElementsChain,
     convertHeadingElementChainToListElement
 );
 
 const createTOCObject = pipe(
     getHeadingElementsList,
+    normalizeHeadingElementList,
     getHeadingElementsChain
 );
 

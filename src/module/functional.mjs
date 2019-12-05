@@ -2,8 +2,10 @@ const L = {};
 const curry = f => (h, ...args) => args.length ? f(h, ...args) : (...args) => f(h, ...args);
 
 L.map = curry(function* (f, iter) {
+    let previous = null;
     for (const one of iter) {
-        yield f(one);
+        yield f(one, previous);
+        previous = one;
     }
 });
 
